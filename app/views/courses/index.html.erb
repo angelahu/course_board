@@ -1,0 +1,19 @@
+<h1>課程查詢系統</h1>
+
+<%= form_tag courses_path,method:"get" do%>
+course name<%= text_field_tag :course_name%>
+course teacher<%= text_field_tag :course_teacher%>
+course time<%= text_field_tag :course_time%>
+<%= submit_tag "search"%>
+<%end%>
+
+<% @courses.each do |course| %>
+  <h3><%= course.course_name %></h3>
+  <h3><%= course.course_teacher %></h3>
+  <h3><%= course.course_time %></h3>
+  <h3><%= course.course_place %></h3>
+  <h3><%= course.course_credit %></h3>
+  <h5><%= link_to "Edit Posting", edit_course_path(course)%></h5>
+  <h5><%= link_to 'Delete Posting', course, method: :delete %></h5>
+<% end %>
+
